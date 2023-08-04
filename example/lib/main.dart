@@ -73,19 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: SizedBox(
-          width: 375,
-          child: ListView(
-            children: <Widget>[
-              _buildCalendarDialogButton(),
-              _buildDefaultSingleDatePickerWithValue(),
-              _buildDefaultMultiDatePickerWithValue(),
-              _buildDefaultRangeDatePickerWithValue(),
-              _buildCalendarWithActionButtons(),
-            ],
-          ),
-        ),
+      body: ListView(
+        children: <Widget>[
+          _buildCalendarDialogButton(),
+          _buildDefaultSingleDatePickerWithValue(),
+          _buildDefaultMultiDatePickerWithValue(),
+          _buildDefaultRangeDatePickerWithValue(),
+          _buildCalendarWithActionButtons(),
+        ],
       ),
     );
   }
@@ -241,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       },
     );
-    return Padding(
+    return Container(
       padding: const EdgeInsets.all(15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -299,17 +294,21 @@ class _MyHomePageState extends State<MyHomePage> {
       selectableDayPredicate: (day) => !day
           .difference(DateTime.now().subtract(const Duration(days: 3)))
           .isNegative,
+      selectorAspectRatio: 0.7
     );
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: 10),
         const Text('Single Date Picker (With default value)'),
-        CalendarDatePicker2(
-          config: config,
-          value: _singleDatePickerValueWithDefaultValue,
-          onValueChanged: (dates) =>
-              setState(() => _singleDatePickerValueWithDefaultValue = dates),
+        SizedBox(
+          width: MediaQuery.of(context).size.width*0.65,
+          child: CalendarDatePicker2(
+            config: config,
+            value: _singleDatePickerValueWithDefaultValue,
+            onValueChanged: (dates) =>
+                setState(() => _singleDatePickerValueWithDefaultValue = dates),
+          ),
         ),
         const SizedBox(height: 10),
         Row(

@@ -238,6 +238,7 @@ class _DayPickerState extends State<_DayPicker> {
               localizations,
               day,
               dayTextStyle,
+              widget.config.selectorAspectRatio ?? 1
             );
 
         if (isDateInBetweenRangePickerSelectedDates) {
@@ -350,12 +351,14 @@ class _DayPickerState extends State<_DayPicker> {
     MaterialLocalizations localizations,
     int day,
     TextStyle dayTextStyle,
+    double aspectRatio
   ) {
+    assert(aspectRatio<=1);
     return Row(
       children: [
         const Spacer(),
         AspectRatio(
-          aspectRatio: 1,
+          aspectRatio: aspectRatio,
           child: Container(
             decoration: decoration,
             child: Center(

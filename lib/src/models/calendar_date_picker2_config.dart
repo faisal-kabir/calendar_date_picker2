@@ -61,6 +61,7 @@ class CalendarDatePicker2Config {
     this.customModePickerIcon,
     this.modePickerTextHandler,
     this.selectedRangeDayTextStyle,
+    this.selectorAspectRatio,
   })  : calendarType = calendarType ?? CalendarDatePicker2Type.single,
         firstDate = DateUtils.dateOnly(firstDate ?? DateTime(1970)),
         lastDate =
@@ -164,6 +165,8 @@ class CalendarDatePicker2Config {
   /// Custom icon for the mode picker button icon
   final Widget? customModePickerIcon;
 
+  final double? selectorAspectRatio;
+
   /// Function to control mode picker displayed text
   final CalendarModePickerTextHandler? modePickerTextHandler;
 
@@ -198,6 +201,7 @@ class CalendarDatePicker2Config {
     bool? disableModePicker,
     bool? centerAlignModePicker,
     Widget? customModePickerIcon,
+    double? selectorAspectRatio,
     CalendarModePickerTextHandler? modePickerTextHandler,
   }) {
     return CalendarDatePicker2Config(
@@ -241,6 +245,8 @@ class CalendarDatePicker2Config {
       customModePickerIcon: customModePickerIcon ?? this.customModePickerIcon,
       modePickerTextHandler:
           modePickerTextHandler ?? this.modePickerTextHandler,
+      selectorAspectRatio:
+          selectorAspectRatio ?? this.selectorAspectRatio,
     );
   }
 }
@@ -278,6 +284,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? disableModePicker,
     bool? centerAlignModePicker,
     Widget? customModePickerIcon,
+    double? selectorAspectRatio,
     CalendarModePickerTextHandler? modePickerTextHandler,
     this.gapBetweenCalendarAndButtons,
     this.cancelButtonTextStyle,
@@ -320,6 +327,7 @@ class CalendarDatePicker2WithActionButtonsConfig
           centerAlignModePicker: centerAlignModePicker,
           customModePickerIcon: customModePickerIcon,
           modePickerTextHandler: modePickerTextHandler,
+          selectorAspectRatio: selectorAspectRatio
         );
 
   /// The gap between calendar and action buttons
@@ -390,6 +398,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? openedFromDialog,
     bool? closeDialogOnCancelTapped,
     bool? closeDialogOnOkTapped,
+    double? selectorAspectRatio,
     EdgeInsets? buttonPadding,
   }) {
     return CalendarDatePicker2WithActionButtonsConfig(
@@ -446,6 +455,7 @@ class CalendarDatePicker2WithActionButtonsConfig
       closeDialogOnOkTapped:
           closeDialogOnOkTapped ?? this.closeDialogOnOkTapped,
       buttonPadding: buttonPadding ?? this.buttonPadding,
+      selectorAspectRatio: selectorAspectRatio ?? this.selectorAspectRatio,
     );
   }
 }

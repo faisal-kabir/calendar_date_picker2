@@ -23,7 +23,7 @@ const int _maxDayPickerRowCount = 6; // A 31 day month that starts on Saturday.
 // One extra row for the day-of-week header.
 const double _maxDayPickerHeight =
     _dayPickerRowHeight * (_maxDayPickerRowCount + 1);
-const double _monthPickerHorizontalPadding = 8.0;
+const double _monthPickerHorizontalPadding = 0.0;
 
 const int _yearPickerColumnCount = 3;
 const double _yearPickerPadding = 16.0;
